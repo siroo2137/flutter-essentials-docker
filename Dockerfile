@@ -85,8 +85,8 @@ ENV PATH="${PATH}:${DART_SDK}/bin:${PUB_CACHE}/bin"
 RUN yes "y" | ${FLUTTER_ROOT}/bin/flutter doctor --android-licenses \
   && ${FLUTTER_ROOT}/bin/flutter doctor
 
+## Clear stuff
 RUN locale-gen en_US ${LANG} \
   && dpkg-reconfigure locales \
   && apt-get autoremove -y \
-  && rm -rf /var/lib/apt/lists/* 
-  && apt-get 
+  && rm -rf /var/lib/apt/lists/*
