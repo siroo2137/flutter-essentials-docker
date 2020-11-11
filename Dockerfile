@@ -85,6 +85,9 @@ ENV PATH="${PATH}:${DART_SDK}/bin:${PUB_CACHE}/bin"
 RUN yes "y" | ${FLUTTER_ROOT}/bin/flutter doctor --android-licenses \
   && ${FLUTTER_ROOT}/bin/flutter doctor
 
+## Switch to flutters master channel
+RUN flutter channel master
+
 ## Clear stuff
 RUN locale-gen en_US ${LANG} \
   && dpkg-reconfigure locales \
