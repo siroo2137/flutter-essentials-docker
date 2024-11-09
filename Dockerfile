@@ -13,10 +13,17 @@ RUN yes | apt-get install \
   libglu1-mesa \
   build-essential \
   ruby-full \
-  rubygems \
-  nodejs \
-  npm
-  
+  rubygems
+
+# Install nvm
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+# this loads nvm
+RUN 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+
+# Install latest LTS node
+RUN nvm install --lts
+
 # Install fastlane
 RUN gem install fastlane -NV \
   && fastlane --version
