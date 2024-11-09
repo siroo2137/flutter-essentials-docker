@@ -58,7 +58,7 @@ RUN yes "y" | ${ANDROID_SDK_ROOT}/tools/bin/sdkmanager "build-tools;${ANDROID_SD
 
 ## Setting Flutter Variables
 ARG FLUTTER_SDK_CHANNEL="stable"
-ARG FLUTTER_SDK_VERSION="1.20.2"
+ARG FLUTTER_SDK_VERSION="3.24.4"
 ENV FLUTTER_ROOT="/usr/local/flutter"
 ENV FLUTTER_SDK_ARCHIVE="/tmp/flutter.tar.xz"
 ENV FLUTTER_SDK_URL="https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_${FLUTTER_SDK_VERSION}-${FLUTTER_SDK_CHANNEL}.tar.xz"
