@@ -2,6 +2,8 @@ FROM openjdk:8
 
 MAINTAINER Niklas Lehnfeld <niklas@lehnfeld.net>
 
+SHELL ["/bin/bash", "--login", "-c"]
+
 ENV LANG en_US.UTF-8
 
 # Update & Install basics
@@ -16,7 +18,7 @@ RUN yes | apt-get install \
   rubygems
 
 # Install nvm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | sh
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 # this loads nvm
 RUN 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
